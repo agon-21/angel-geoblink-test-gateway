@@ -1,0 +1,23 @@
+{
+  "name": "angel-geoblink-test-gateway",
+  "version": "1.0.0",
+  "description": "",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/agon-21/angel-geoblink-test-gateway.git"
+  },
+  "author": "Angel Gonzalez Pinar",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/agon-21/angel-geoblink-test-gateway/issues"
+  },
+  "homepage": "https://github.com/agon-21/angel-geoblink-test-gateway#readme",
+  "dependencies": {
+    "express": "^4.13.4",
+    "swaggerize-express": "^4.0.5"
+  }
+}

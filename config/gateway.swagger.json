@@ -1,0 +1,175 @@
+{
+  "swagger": "2.0",
+  "info": {
+    "title": "Geoblink Test Gateway",
+    "description": "Geoblink Test Gateway",
+    "version": "1.0.0"
+  },
+  "basePath": "/",
+  "produces": [
+    "application/json"
+  ],
+  "paths": {
+    "/cities": {
+      "get": {
+        "description": "List all the cities",
+        "responses": {
+          "200": {
+            "description": "List of all the cities",
+            "schema": {
+              "$ref": "#/definitions/CitiesResponse"
+            }
+          },
+          "default": {
+            "description": "unexpected error",
+            "schema": {
+              "$ref": "#/definitions/Error"
+            }
+          }
+        }
+      }
+    },
+    "/cities/{cityId}/businesses": {
+      "get": {
+        "description": "List all the businesses for a given a city",
+        "parameters": [
+          {
+            "name": "cityId",
+            "description": "Id of the city",
+            "type": "string",
+            "in": "path",
+            "required": true
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "List of all the businesses in the city stated by the Id",
+            "schema": {
+              "$ref": "#/definitions/BusinessesResponse"
+            }
+          },
+          "default": {
+            "description": "unexpected error",
+            "schema": {
+              "$ref": "#/definitions/Error"
+            }
+          }
+        }
+      }
+    },
+    "/businesses/{businessId}": {
+      "delete": {
+        "description": "Remove a business from the list given a business Id",
+        "parameters": [
+          {
+            "name": "businessId",
+            "description": "Id of the business to remove",
+            "type": "string",
+            "in": "path",
+            "required": true
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Business have been successfully removed"
+          },
+          "default": {
+            "description": "unexpected error",
+            "schema": {
+              "$ref": "#/definitions/Error"
+            }
+          }
+        }
+      }
+    },
+    "/businesses/{businessId}/address": {
+      "put": {
+        "description": "Update address for a given business",
+        "parameters": [
+          {
+            "name": "businessId",
+            "description": "Id of the business",
+            "type": "string",
+            "in": "path",
+            "required": true
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Address have been succesfully updated"
+          },
+          "default": {
+            "description": "unexpected error",
+            "schema": {
+              "$ref": "#/definitions/Error"
+            }
+          }
+        }
+      }
+    }
+  },
+  "definitions": {
+    "CitiesResponse": {
+      "type": "array",
+      "items": {
+        "$ref": "#/definitions/City"
+      }
+    },
+    "City": {
+      "type": "object",
+      "properties": {
+        "country": {
+          "description": "city's country",
+          "type": "string"
+        },
+        "name": {
+          "description": "city name",
+          "type": "string"
+        },
+        "businesses": {
+          "description": "businesses in the city",
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/Business"
+          }
+        }
+      }
+    },
+    "BusinessesResponse": {
+      "type": "array",
+      "items": {
+        "$ref": "#/definitions/Business"
+      }
+    },
+    "Business": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "description": "business id",
+          "type": "string"
+        },
+        "name": {
+          "description": "business name",
+          "type": "string"
+        },
+        "address": {
+          "description": "business address",
+          "type": "string"
+        }
+      }
+    },
+    "Error": {
+      "properties": {
+        "error": {
+          "type": "string"
+        },
+        "message": {
+          "type": "string"
+        },
+        "code": {
+          "type": "string"
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,11 @@
+In order to modify the API:
+
+For the first time, run the following 2 commands
+
+1. npm install -g yo
+2. npm install -g generator-swaggerize
+
+
+After, run:
+
+3. yo swaggerize --only=handlers --apiPath=config/gateway.swagger.json
