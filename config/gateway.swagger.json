@@ -48,6 +48,9 @@
               "$ref": "#/definitions/BusinessesResponse"
             }
           },
+          "204": {
+            "description": "City not found"
+          },
           "default": {
             "description": "unexpected error",
             "schema": {
@@ -92,6 +95,15 @@
             "type": "string",
             "in": "path",
             "required": true
+          },
+          {
+            "name": "businessInfo",
+            "description": "Business' new address and current city",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/PutBusinessRequest"
+            }
           }
         ],
         "responses": {
@@ -158,15 +170,25 @@
         }
       }
     },
+    "PutBusinessRequest": {
+      "type": "object",
+      "properties": {
+        "city": {
+          "description": "business' city name",
+          "type": "string"
+        },
+        "newAddress": {
+          "description": "business' new address",
+          "type": "string"
+        }
+      }
+    },
     "Error": {
       "properties": {
         "error": {
           "type": "string"
         },
         "message": {
-          "type": "string"
-        },
-        "code": {
           "type": "string"
         }
       }

@@ -17,7 +17,9 @@
   },
   "homepage": "https://github.com/agon-21/angel-geoblink-test-gateway#readme",
   "dependencies": {
+    "body-parser": "^1.15.0",
     "express": "^4.13.4",
+    "jsonfile": "^2.2.3",
     "swaggerize-express": "^4.0.5"
   }
 }

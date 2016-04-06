@@ -11,9 +11,11 @@ module.exports = {
      * produces: 
      */
     get: function (req, res) {
-        for (var key in data){
-            cities.push(data[key].city)
+        for (var key in data) {
+            if (data.hasOwnProperty(key)) {
+                cities.push(data[key].city);
+            }
         }
-        res.status(200).send(cities)
+        res.status(200).send(cities);
     }
 };
