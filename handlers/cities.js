@@ -1,6 +1,6 @@
 'use strict';
 var data = require('../data/data.json');
-var cities = [];
+
 /**
  * Operations on /cities
  */
@@ -11,6 +11,7 @@ module.exports = {
      * produces: 
      */
     get: function (req, res) {
+        var cities = [];
         for (var key in data) {
             if (data.hasOwnProperty(key)) {
                 cities.push(data[key].city);
