@@ -3,7 +3,7 @@ var data = require('../../../data/data.json');
 var jsonfile = require('jsonfile');
 var path = require('path');
 
-var fileName = path.resolve('./data/dataa.json');
+var fileName = path.resolve('./data/data.json');
 /**
  * Operations on /businesses/{businessId}/address
  */

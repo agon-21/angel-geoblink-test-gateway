@@ -3,7 +3,7 @@ var data = require('../../data/data.json');
 var jsonfile = require('jsonfile');
 var path = require('path');
 
-var fileName = path.resolve('./data/dataa.json');
+var fileName = path.resolve('./data/data.json');
 /**
  * Operations on /businesses/{businessId}
  */
@@ -29,5 +29,6 @@ module.exports = {
                 }
             }
         }
+        //return res.status(200).send('Noting to update')
     }
 };
